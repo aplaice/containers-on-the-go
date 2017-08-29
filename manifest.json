@@ -1,11 +1,11 @@
 {
-  "description": "Create new tabs in new containers. The containers are automatically deleted when the tabs are closed.",
+  "description": "Open new tabs in new containers. The containers are automatically removed when the tabs are closed.",
   "manifest_version": 2,
   "name": "Containers On The Go",
-  "version": "1.8",
+  "version": "1.9",
 
   "icons": {
-    "48": "icons/icon-48.png"
+    "48": "icons/icon-128.png"
   },
 
   "permissions": [
@@ -13,8 +13,8 @@
   ],  
 
   "browser_action": {
-    "default_icon": "icons/icon-48.png",
-    "default_title": "Create a new tab in a new container (Alt+C)"
+    "default_icon": "icons/icon-128.png",
+    "default_title": "Open a new tab in a new container (Alt+C)"
   },
 
   "background": {
