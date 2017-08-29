@@ -2,23 +2,41 @@
   "description": "Create new tabs in new containers. The containers are automatically deleted when the tabs are closed.",
   "manifest_version": 2,
   "name": "Containers On The Go",
-  "version": "1.1",
+  "version": "1.8",
 
   "icons": {
     "48": "icons/icon-48.png"
   },
 
   "permissions": [
-    "tabs", "cookies", "contextualIdentities"
+    "contextMenus", "contextualIdentities", "cookies", "notifications", "storage"
   ],  
 
   "browser_action": {
     "default_icon": "icons/icon-48.png",
-    "default_title": "Create a new tab in a new container"
+    "default_title": "Create a new tab in a new container (Alt+C)"
   },
 
   "background": {
     "scripts": ["background-script.js"]
-  }
+  },
 
+  "options_ui": {
+    "page": "options.html"
+  },
+
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+C"
+      }
+    }
+  },
+
+  "applications": {
+    "gecko": {
+      "id": "{7e56c1ad-71c3-47fe-bdba-372c7770e0cb}",
+      "strict_min_version": "53.0"
+    }
+  }
 }
