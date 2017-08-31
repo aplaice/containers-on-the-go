@@ -2,7 +2,7 @@
   "description": "Open new tabs in new containers. The containers are automatically removed when the tabs are closed.",
   "manifest_version": 2,
   "name": "Containers On The Go",
-  "version": "1.9",
+  "version": "1.10",
 
   "icons": {
     "48": "icons/icon-128.png"

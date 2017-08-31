@@ -3,7 +3,7 @@ var sNamePrefix = "CG ";
 function OpenNewTab( sUrl ) {
 	browser.contextualIdentities.query( {} ).then(
 		function( contexts ) {
-			if( contexts == false ) {
+			if( typeof contexts == "boolean" ) {
 				browser.notifications.create( { type: "basic", message: "Please enable container tabs from:\nOptions -> Privacy -> Container Tabs", title: "Containers On The Go", iconUrl: "icons/icon-48.png" } );
 				return;
 			}
