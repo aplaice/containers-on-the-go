@@ -17,7 +17,10 @@ function OpenNewTab( sUrl ) {
 			var sColors = [ "red", "blue", "orange", "green", "pink", "turquoise", "purple", "yellow" ];
 			browser.contextualIdentities.create( { name: sNamePrefix + ( i + 1 ), color: sColors[ i % sColors.length ], icon: "circle" } ).then(
 				function( context ) {
-  					browser.tabs.create( { cookieStoreId: context.cookieStoreId, url: sUrl } );
+					if( sUrl == "" )
+  						browser.tabs.create( { cookieStoreId: context.cookieStoreId } );
+					else
+						browser.tabs.create( { cookieStoreId: context.cookieStoreId, url: sUrl } );
 				}
 			);
 		}
@@ -25,7 +28,7 @@ function OpenNewTab( sUrl ) {
 }
 
 function handleBrowserAction() {
-	OpenNewTab( "about:blank" );
+	OpenNewTab( "" );
 }
 
 function handleRemoved( tabId, removeInfo ) {
