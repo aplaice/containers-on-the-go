@@ -1,17 +1,10 @@
-var sOpenLinkMenuitem = "open_link_menuitem";
+var openLinkMenuItem = document.getElementById( "openLinkMenuItem" );
 
-document.addEventListener( "DOMContentLoaded",
-	function() {
-		browser.runtime.sendMessage( { type: "get_" + sOpenLinkMenuitem } ).then(
-			function( message ) {
-				document.getElementById( sOpenLinkMenuitem ).checked = message[ sOpenLinkMenuitem ];
-			}
-		);
-	}
-);
-
-document.getElementById( sOpenLinkMenuitem ).addEventListener( "click",
-	function( e ) {
-		browser.runtime.sendMessage( { type: "set_" + sOpenLinkMenuitem, value: document.getElementById( sOpenLinkMenuitem ).checked } );
-	}
-);
+openLinkMenuItem.onclick = function() {
+	browser.runtime.sendMessage( { type: "set_settings", 
+		"bOpenLinkMenuItem": openLinkMenuItem.checked
+	} );
+};
+browser.runtime.sendMessage( { type: "get_settings" } ).then( function( settings ) {
+	openLinkMenuItem.checked = settings[ "bOpenLinkMenuItem" ];
+} );
